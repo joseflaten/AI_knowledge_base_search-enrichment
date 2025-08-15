@@ -1,12 +1,13 @@
 from typing import List
 from app.services.ingestion_service import DOCUMENT_STORE
+from app.schemas import SearchHit
 
 def semantic_search(query: str, top_k: int) -> List[dict]:
     """
     A dummy search implementation.
     For now, it returns documents that contain the query string.
     """
-    results = []
+    results : List[SearchHit] = []
     for doc_id, doc in DOCUMENT_STORE.items():
         if query.lower() in doc["content"].lower():
             results.append({

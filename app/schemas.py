@@ -23,7 +23,8 @@ class SearchHit(BaseModel):
     text: str
 
 class SearchResponse(BaseModel):
-    hits: List[SearchHit]
+    query: str
+    results: List[SearchHit]
 
 class QAQuery(BaseModel):
     question: str
